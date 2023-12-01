@@ -1,4 +1,4 @@
 package Entidades;
 
-public interface ControleFuncionario {
+interface ControleFuncionario {
 }

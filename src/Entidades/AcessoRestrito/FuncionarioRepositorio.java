@@ -1,4 +1,4 @@
 package Entidades.AcessoRestrito;
 
-public class FuncionarioRepositorio {
+class FuncionarioRepositorio {
 }

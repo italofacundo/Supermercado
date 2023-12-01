@@ -1,4 +1,4 @@
 package Entidades;
 
-public interface RelatorioAdministrativo {
+interface RelatorioAdministrativo {
 }

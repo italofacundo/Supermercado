@@ -1,4 +1,4 @@
 package Entidades;
 
-public class Funcionario {
+class Funcionario {
 }

@@ -1,4 +1,4 @@
 package Entidades;
 
-public interface ControleVendas {
+interface ControleVendas {
 }

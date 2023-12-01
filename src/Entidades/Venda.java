@@ -1,4 +1,4 @@
 package Entidades;
 
-public class Venda {
+class Venda {
 }

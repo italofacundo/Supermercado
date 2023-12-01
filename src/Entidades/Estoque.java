@@ -1,4 +1,4 @@
 package Entidades;
 
-public class Estoque {
+class Estoque {
 }
