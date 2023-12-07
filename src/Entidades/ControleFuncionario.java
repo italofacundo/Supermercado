@@ -1,4 +1,6 @@
 package Entidades;
 
-interface ControleFuncionario {
+public interface ControleFuncionario {
+    void contratarFuncionario();
+    void demitirFuncionario();
 }

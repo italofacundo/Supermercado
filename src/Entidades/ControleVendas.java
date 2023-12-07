@@ -1,4 +1,7 @@
 package Entidades;
 
-interface ControleVendas {
+public interface ControleVendas {
+    void vender();
+    void cancelarVenda();
+    void emitirRecibo();
 }

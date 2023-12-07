@@ -1,4 +1,13 @@
 package Entidades.AcessoRestrito;
 
-class VendasRepositorio {
+import Entidades.Venda;
+
+import java.util.ArrayList;
+
+public class VendasRepositorio {
+    private ArrayList<Venda> vendas;
+
+    public VendasRepositorio() {
+        vendas = new ArrayList<>();
+    }
 }

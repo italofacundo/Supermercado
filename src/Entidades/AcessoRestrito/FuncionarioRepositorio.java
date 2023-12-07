@@ -1,4 +1,13 @@
 package Entidades.AcessoRestrito;
 
-class FuncionarioRepositorio {
+import Entidades.Funcionario;
+
+import java.util.ArrayList;
+
+public class FuncionarioRepositorio {
+    private ArrayList<Funcionario> funcionarios;
+
+    public FuncionarioRepositorio() {
+        funcionarios = new ArrayList<>();
+    }
 }
