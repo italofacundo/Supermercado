@@ -20,7 +20,7 @@ public class FuncionarioRepositorio {
         Funcionário contratado!
         Nome do funcionário: %s
         ID do funcionário: %d
-        Salário do funcionário: %f
+        Salário do funcionário: R$ %f
         Cargo do funcionário: %s
         """.formatted(funcionario.getNome(), funcionario.getId(), funcionario.getSalario(), funcionario.getClass().getSimpleName());
         System.out.println(mensagem);
@@ -34,7 +34,7 @@ public class FuncionarioRepositorio {
                 Funcionário demitido.
                 Nome do funcionário: %s
                 ID do funcionário: %d
-                Salário do funcionário: %f
+                Salário do funcionário: R$ %f
                 Cargo do funcionário: %s
                 """.formatted(funcionario.getNome(), funcionario.getId(), funcionario.getSalario(), funcionario.getClass().getSimpleName());
                 System.out.println(mensagem);

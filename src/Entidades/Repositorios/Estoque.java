@@ -14,66 +14,55 @@ public class Estoque {
     }
 
     public void adicionarProduto(Produto produto, int quantidade) {
-        boolean produtoEncontrado = false;
-
-        for (Produto p : estoqueProdutos.keySet()) {
-            if (p.getNome().equals(produto.getNome())) {
-                estoqueProdutos.put(p, estoqueProdutos.get(p) + quantidade);
-                produtoEncontrado = true;
-
-                String mensagem = """
-                Estoque do produto atualizado.
-                Código do produto: %d
-                Nome do produto: %s
-                Tipo do produto: %s
-                Quantidade do produto: %d
-                """.formatted(p.getCodigo(), p.getNome(), p.getClass().getSimpleName(), estoqueProdutos.get(p));
-
-                System.out.println(mensagem);
-                break;
-            }
-        }
-
-        if (!produtoEncontrado) {
-            produto.setCodigo(codigo++);
-            estoqueProdutos.put(produto, quantidade);
+        if (estoqueProdutos.containsKey(produto)) {
+            estoqueProdutos.put(produto, estoqueProdutos.get(produto) + quantidade);
 
             String mensagem = """
-            Novo produto adicionado ao estoque.
+            Estoque do produto atualizado.
             Código do produto: %d
             Nome do produto: %s
             Tipo do produto: %s
             Quantidade do produto: %d
-            """.formatted(produto.getCodigo(), produto.getNome(), produto.getClass().getSimpleName(), quantidade);
-
+            """.formatted(produto.getCodigo(), produto.getNome(), produto.getClass().getSimpleName(), estoqueProdutos.get(produto));
             System.out.println(mensagem);
+
+            return;
         }
+
+        estoqueProdutos.put(produto, quantidade);
+        produto.setCodigo(codigo++);
+
+        String mensagem = """
+        Produto adicionado ao estoque.
+        Código do produto: %d
+        Nome do produto: %s
+        Tipo do produto: %s
+        Quantidade do produto: %d
+        """.formatted(produto.getCodigo(), produto.getNome(), produto.getClass().getSimpleName(), quantidade);
+        System.out.println(mensagem);
     }
 
     public void removerProduto(Produto produto, int quantidade) {
-        boolean produtoEncontrado = false;
-
-        for (Produto p : estoqueProdutos.keySet()) {
-            if (p.getNome().equals(produto.getNome())) {
-                int novaQuantidade = Math.max(0, estoqueProdutos.get(p) - quantidade);
-                estoqueProdutos.put(p, novaQuantidade);
-                produtoEncontrado = true;
-
-                String mensagem = """
-                Estoque do produto atualizado.
-                Código do produto: %d
-                Nome do produto: %s
-                Tipo do produto: %s
-                Quantidade restante: %d
-                """.formatted(p.getCodigo(), p.getNome(), p.getClass().getSimpleName(), novaQuantidade);
-
-                System.out.println(mensagem);
-                break;
-            }
-        }
-
-        if (!produtoEncontrado) {
+        if (!estoqueProdutos.containsKey(produto)) {
             System.out.println("Produto não encontrado no estoque.");
+            return;
         }
+
+        // TRANSFORMAR ISSO AQUI EM UMA EXCEÇÃO DEPOIS
+        if (estoqueProdutos.get(produto) < quantidade) {
+            System.out.println("Quantidade de produtos insuficiente no estoque.");
+            return;
+        }
+
+        estoqueProdutos.put(produto, estoqueProdutos.get(produto) - quantidade);
+
+        String mensagem = """
+        Estoque do produto atualizado.
+        Código do produto: %d
+        Nome do produto: %s
+        Tipo do produto: %s
+        Quantidade do produto: %d
+        """.formatted(produto.getCodigo(), produto.getNome(), produto.getClass().getSimpleName(), estoqueProdutos.get(produto));
+        System.out.println(mensagem);
     }
 }
