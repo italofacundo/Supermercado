@@ -1,17 +1,36 @@
 package Entidades;
 
-import java.util.ArrayList;
-
 public abstract class Produto {
     protected String nome;
     protected double preco;
-    protected String codigo;
+    protected int codigo;
 
-    public Produto(String nome, double preco, String codigo) {
+    public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
-        this.codigo = codigo;
     }
 
-    public abstract ArrayList getCategorias();
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
 }

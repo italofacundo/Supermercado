@@ -1,29 +1,33 @@
-import Entidades.AcessoRestrito.FuncionarioRepositorio;
-import Entidades.AcessoRestrito.VendasRepositorio;
-import Entidades.Estoque;
+import Entidades.Funcionarios.Gerente;
+import Entidades.Repositorios.FuncionarioRepositorio;
+import Entidades.Repositorios.VendasRepositorio;
+import Entidades.Repositorios.Estoque;
 import Entidades.Produtos.Alimenticios.Bebida;
-import Entidades.Produtos.Alimenticios.Carne;
-import Entidades.Produtos.NaoAlimenticios.Eletronico;
-import Entidades.Produtos.ProdutoAlimenticio;
-import Entidades.Produtos.ProdutoNaoAlimenticio;
 
 import java.util.Date;
 
 public class Supermercado {
     public static void main(String[] args) {
-        FuncionarioRepositorio funcionarioRepositorio = new FuncionarioRepositorio();
-        VendasRepositorio vendasRepositorio = new VendasRepositorio();
+        FuncionarioRepositorio fr = new FuncionarioRepositorio();
+        VendasRepositorio vr = new VendasRepositorio();
         Estoque estoque = new Estoque();
 
-        // ATRIBUIR O CÓDIGO AUTOMATICAMENTE
-        // CRIAR PRODUTOS SEM INSTANCIAR MANUALMENTE
-        ProdutoAlimenticio leiteItambe = new Bebida("Leite 1L Itambé", 3.50, "001", new Date(), "und", "Laticínios");
-        ProdutoAlimenticio sobrecoxaSadia = new Carne("Sobrecoxa de Frango Sadia", 3.50, "002", new Date(), "kg", "Aves");
-        ProdutoNaoAlimenticio iphone = new Eletronico("iPhone Apple", 6500.00, "003", 2);
+        Bebida leiteItambe = new Bebida(
+                "Leite Itambé 1L",
+                3.50,
+                new Date(2024, 4, 10),
+                "und",
+                false
+        );
 
-        estoque.adicionarProduto("001", 50);
-        estoque.adicionarProduto("002", 40);
-        estoque.adicionarProduto("003", 30);
+        estoque.adicionarProduto(leiteItambe, 10);
+        estoque.adicionarProduto(leiteItambe, 10);
+        estoque.removerProduto(leiteItambe, 5);
+
+
+
+        Gerente joao = new Gerente("João", 5000);
+        fr.contratarFuncionario(joao);
     }
 }
 

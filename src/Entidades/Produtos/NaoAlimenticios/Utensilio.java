@@ -1,4 +1,9 @@
 package Entidades.Produtos.NaoAlimenticios;
 
-class Utensilio {
+import Entidades.Produtos.ProdutoNaoAlimenticio;
+
+class Utensilio extends ProdutoNaoAlimenticio {
+    public Utensilio (String nome, double preco) {
+        super(nome, preco);
+    }
 }

@@ -1,10 +1,11 @@
 package Entidades;
 
-import Entidades.AcessoRestrito.FuncionarioRepositorio;
-import Entidades.AcessoRestrito.VendasRepositorio;
+import Entidades.Repositorios.Estoque;
+import Entidades.Repositorios.FuncionarioRepositorio;
+import Entidades.Repositorios.VendasRepositorio;
 
 public interface RelatorioAdministrativo {
-    String gerarRelatorioEstoque();
-    String gerarRelatorioVendas();
-    String gerarRelatorioFuncionarios();
+    String gerarRelatorioEstoque(Estoque estoque);
+    String gerarRelatorioVendas(VendasRepositorio vendasRepositorio);
+    String gerarRelatorioFuncionarios(FuncionarioRepositorio funcionarioRepositorio);
 }

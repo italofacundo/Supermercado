@@ -1,4 +1,4 @@
-package Entidades.AcessoRestrito;
+package Entidades.Repositorios;
 
 import Entidades.Venda;
 
@@ -8,6 +8,6 @@ public class VendasRepositorio {
     private ArrayList<Venda> vendas;
 
     public VendasRepositorio() {
-        vendas = new ArrayList<>();
+        vendas = new ArrayList<Venda>();
     }
 }
