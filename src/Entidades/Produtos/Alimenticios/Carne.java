@@ -7,9 +7,8 @@ import java.util.Date;
 public class Carne extends ProdutoAlimenticio {
     protected String tipoCarne;
 
-    public Carne(String nome, double preco, Date dataValidade, String unidadeMedida, String tipoCarne) {
-        super(nome, preco, dataValidade, unidadeMedida);
+    public Carne(String nome, double preco, int quantidade, Date dataValidade, String unidadeMedida, String tipoCarne) {
+        super(nome, preco, quantidade, dataValidade, unidadeMedida);
         this.tipoCarne = tipoCarne;
     }
-
 }

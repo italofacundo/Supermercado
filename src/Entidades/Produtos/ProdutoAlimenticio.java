@@ -9,8 +9,8 @@ public abstract class ProdutoAlimenticio extends Produto {
     protected Date dataValidade;
     protected String unidadeMedida;
 
-    public ProdutoAlimenticio(String nome, double preco, Date dataValidade, String unidadeMedida) {
-        super(nome, preco);
+    public ProdutoAlimenticio(String nome, double preco, int quantidade, Date dataValidade, String unidadeMedida) {
+        super(nome, preco, quantidade);
         this.dataValidade = dataValidade;
         this.unidadeMedida = unidadeMedida;
     }

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Eletronico extends ProdutoNaoAlimenticio {
     int garantiaMeses;
 
-    public Eletronico(String nome, double preco, int garantiaMeses) {
-        super(nome, preco);
+    public Eletronico(String nome, double preco, int quantidade, int garantiaMeses) {
+        super(nome, preco, quantidade);
         this.garantiaMeses = garantiaMeses;
     }
 }

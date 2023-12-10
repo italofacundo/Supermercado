@@ -1,8 +1,10 @@
 package Entidades;
 
+import Entidades.Repositorios.Estoque;
+
 public interface ControleEstoque {
-    void adicionarProduto(Produto produto, int quantidade);
-    void removerProduto(Produto produto, int quantidade);
-    void consultarEstoque();
-    void consultarEstoque(String nome);
+    void adicionarProduto(Estoque estoque, Produto produto, int quantidade);
+    void removerProduto(Estoque estoque, Produto produto, int quantidade);
+    void consultarEstoque(Estoque estoque);
+    void consultarEstoque(Estoque estoque, String nome);
 }

@@ -1,7 +1,9 @@
 package Entidades;
 
+import Entidades.Repositorios.Estoque;
+
 public interface ControleVendas {
-    void vender();
-    void cancelarVenda();
-    void emitirRecibo();
+    void iniciarVenda(Estoque estoque);
+    void adicionarProdutoVenda(Produto produto, int quantidade);
+    void concluirVenda();
 }
