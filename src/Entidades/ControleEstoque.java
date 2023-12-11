@@ -7,4 +7,5 @@ public interface ControleEstoque {
     void removerProduto(Estoque estoque, Produto produto, int quantidade);
     void consultarEstoque(Estoque estoque);
     void consultarEstoque(Estoque estoque, String nome);
+    void carregarProdutos(Estoque estoque, String arquivo);
 }

@@ -1,0 +1,5 @@
+bebida,Café,5.99,100,2023-12-31,500ml,false
+carne,Contra Filé,49.99,50,2023-06-30,1kg,Bovina
+eletronico,Smartphone,1500.00,30,24
+limpeza,Detergente,3.99,150,Cozinha
+utensilio,Faca de Chef,45.50,25,Aço Inox

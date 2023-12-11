@@ -2,8 +2,11 @@ package Entidades.Funcionarios;
 
 import Entidades.ControleEstoque;
 import Entidades.Funcionario;
+import Entidades.LeitorDeProdutos;
 import Entidades.Produto;
 import Entidades.Repositorios.Estoque;
+
+import java.util.List;
 
 public class Estoquista extends Funcionario implements ControleEstoque {
     public Estoquista(String nome, double salario) {
@@ -28,5 +31,13 @@ public class Estoquista extends Funcionario implements ControleEstoque {
     @Override
     public void consultarEstoque(Estoque estoque, String nome) {
         estoque.consultarEstoque(nome);
+    }
+
+    @Override
+    public void carregarProdutos(Estoque estoque, String arquivo) {
+        List<Produto> produtos = LeitorDeProdutos.lerProdutos(arquivo);
+        for (Produto produto : produtos) {
+            estoque.adicionarProduto(produto, produto.getQuantidade());
+        }
     }
 }

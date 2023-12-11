@@ -5,10 +5,11 @@ import Entidades.*;
 import Entidades.ControleFuncionarios;
 import Entidades.Repositorios.Estoque;
 import Entidades.Repositorios.FuncionarioRepositorio;
-import Entidades.RelatorioAdministrativo;
 import Entidades.Repositorios.VendasRepositorio;
 
-public class Gerente extends Funcionario implements RelatorioAdministrativo, ControleEstoque, ControleFuncionarios, ControleVendas {
+import java.util.List;
+
+public class Gerente extends Funcionario implements ControleEstoque, ControleFuncionarios, ControleVendas {
     private Venda vendaAtual;
 
     public Gerente(String nome, double salario) {
@@ -23,21 +24,6 @@ public class Gerente extends Funcionario implements RelatorioAdministrativo, Con
     @Override
     public void demitirFuncionario(int id) {
 
-    }
-
-    @Override
-    public String gerarRelatorioEstoque(Estoque estoque) {
-        return null;
-    }
-
-    @Override
-    public String gerarRelatorioVendas(VendasRepositorio vendasRepositorio) {
-        return null;
-    }
-
-    @Override
-    public String gerarRelatorioFuncionarios(FuncionarioRepositorio funcionarioRepositorio) {
-        return null;
     }
 
     @Override
@@ -58,6 +44,14 @@ public class Gerente extends Funcionario implements RelatorioAdministrativo, Con
     @Override
     public void consultarEstoque(Estoque estoque, String nome) {
         estoque.consultarEstoque(nome);
+    }
+
+    @Override
+    public void carregarProdutos(Estoque estoque, String arquivo) {
+        List<Produto> produtos = LeitorDeProdutos.lerProdutos(arquivo);
+        for (Produto produto : produtos) {
+            estoque.adicionarProduto(produto, produto.getQuantidade());
+        }
     }
 
     @Override

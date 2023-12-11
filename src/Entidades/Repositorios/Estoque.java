@@ -58,7 +58,6 @@ public class Estoque {
     }
 
     public void consultarEstoque() {
-        // IMPLEMENTAR EXCEÇÃO
         if (estoque.isEmpty()) {
             System.out.println("O estoque está vazio.");
             return;
@@ -91,5 +90,14 @@ public class Estoque {
             }
         }
         return false;
+    }
+
+    public Produto getProduto(String nomeProduto) {
+        for (Produto p : estoque) {
+            if (p.getNome().equalsIgnoreCase(nomeProduto)) {
+                return p;
+            }
+        }
+        return null;
     }
 }

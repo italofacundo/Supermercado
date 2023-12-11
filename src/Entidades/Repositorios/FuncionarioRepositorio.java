@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class FuncionarioRepositorio {
     private ArrayList<Funcionario> funcionarios;
-    int id = 0;
+    int id = 1;
 
     public FuncionarioRepositorio() {
         funcionarios = new ArrayList<>();
