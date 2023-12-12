@@ -36,14 +36,14 @@ public class LeitorDeProdutos {
                 Produto produto = ProdutoFactory.criarProduto(parametros);
                 produtos.add(produto);
             }
-        } catch (NoSuchFileException e) {
-            System.err.println("Arquivo não encontrado: " + arquivo);
-        } catch (IOException e) {
-            System.err.println("Erro ao ler o arquivo: " + arquivo);
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return produtos;
+    }
+
+    @Override
+    public String toString() {
+        return "LeitorDeProdutos{}";
     }
 }

@@ -35,5 +35,10 @@ public class Supermercado {
         maria.concluirVenda();
 
     }
+
+    @Override
+    public String toString() {
+        return "Supermercado{}";
+    }
 }
 

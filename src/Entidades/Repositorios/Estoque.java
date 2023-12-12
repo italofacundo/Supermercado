@@ -102,10 +102,28 @@ public class Estoque {
         return listaProdutos;
     }
 
-    public Produto getProdutoCliente(int codigo) {
+    public Produto getProduto(int codigo) {
         if (codigo >= 0 && codigo < estoque.size()) {
             return estoque.get(codigo);
         }
         return null;
+    }
+
+    public Produto getProduto(String nome) {
+        for (Produto p : estoque) {
+            if (p.getNome().equalsIgnoreCase(nome)) {
+                return p;
+            }
+        }
+
+        System.out.println("Produto com o nome '" + nome + "' não encontrado no estoque.");
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Estoque{" +
+                "estoque=" + estoque +
+                '}';
     }
 }

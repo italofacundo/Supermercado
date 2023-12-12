@@ -40,4 +40,12 @@ public class Estoquista extends Funcionario implements ControleEstoque {
             estoque.adicionarProduto(produto, produto.getQuantidade());
         }
     }
+
+    @Override
+    public String toString() {
+        return "Estoquista{" +
+                "nome='" + nome + '\'' +
+                ", salario=" + salario +
+                '}';
+    }
 }

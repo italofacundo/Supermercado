@@ -34,7 +34,7 @@ public class MenuVendas {
             }
 
             if (escolha > 0 && escolha <= produtos.size()) {
-                Produto produtoEscolhido = estoque.getProdutoCliente(escolha - 1);
+                Produto produtoEscolhido = estoque.getProduto(escolha - 1);
 
                 System.out.print("Digite a quantidade: ");
                 int quantidade = scanner.nextInt();
@@ -46,5 +46,12 @@ public class MenuVendas {
         }
 
         return produtosSelecionados;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuVendas{" +
+                "scanner=" + scanner +
+                '}';
     }
 }

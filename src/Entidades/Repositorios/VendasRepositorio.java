@@ -10,4 +10,11 @@ public class VendasRepositorio {
     public VendasRepositorio() {
         vendas = new ArrayList<Venda>();
     }
+
+    @Override
+    public String toString() {
+        return "VendasRepositorio{" +
+                "vendas=" + vendas +
+                '}';
+    }
 }

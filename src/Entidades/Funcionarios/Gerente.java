@@ -77,4 +77,12 @@ public class Gerente extends Funcionario implements ControleEstoque, ControleFun
             System.out.println("Nenhuma venda para concluir.");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Gerente{" +
+                "nome='" + nome + '\'' +
+                ", salario=" + salario +
+                '}';
+    }
 }

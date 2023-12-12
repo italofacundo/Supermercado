@@ -14,4 +14,16 @@ public abstract class ProdutoAlimenticio extends Produto {
         this.dataValidade = dataValidade;
         this.unidadeMedida = unidadeMedida;
     }
+
+    @Override
+    public String toString() {
+        return "ProdutoAlimenticio{" +
+                "nome='" + nome + '\'' +
+                ", preco=" + preco +
+                ", quantidade=" + quantidade +
+                ", codigo=" + codigo +
+                ", dataValidade=" + dataValidade +
+                ", unidadeMedida='" + unidadeMedida + '\'' +
+                '}';
+    }
 }

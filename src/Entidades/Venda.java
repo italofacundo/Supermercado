@@ -72,4 +72,13 @@ public class Venda {
             System.err.println("Erro ao salvar o recibo: " + e.getMessage());
         }
     }
+
+    @Override
+    public String toString() {
+        return "Venda{" +
+                "produtosVendidos=" + produtosVendidos +
+                ", estoque=" + estoque +
+                ", totalVenda=" + totalVenda +
+                '}';
+    }
 }

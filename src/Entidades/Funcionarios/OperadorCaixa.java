@@ -24,6 +24,19 @@ public class OperadorCaixa extends Funcionario implements ControleVendas {
         vendaAtual.adicionarProduto(produto, quantidade);
     }
 
+    public void adicionarProdutoVenda(String nomeProduto, int quantidade, Estoque estoque) {
+        if (vendaAtual == null) {
+            System.out.println("Nenhuma venda iniciada.");
+            return;
+        }
+        Produto produto = estoque.getProduto(nomeProduto);
+        if (produto != null) {
+            vendaAtual.adicionarProduto(produto, quantidade);
+        } else {
+            System.out.println("Produto não encontrado: " + nomeProduto);
+        }
+    }
+
     @Override
     public void concluirVenda() {
         if (vendaAtual != null) {
@@ -32,5 +45,13 @@ public class OperadorCaixa extends Funcionario implements ControleVendas {
         } else {
             System.out.println("Nenhuma venda para concluir.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "OperadorCaixa{" +
+                "nome='" + nome + '\'' +
+                ", salario=" + salario +
+                '}';
     }
 }

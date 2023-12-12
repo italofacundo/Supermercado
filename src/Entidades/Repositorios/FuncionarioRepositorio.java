@@ -51,4 +51,22 @@ public class FuncionarioRepositorio {
         }
         return null;
     }
+
+    public Funcionario getFuncionario(String nome) {
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getNome().equalsIgnoreCase(nome)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        System.out.println("Funcionários:");
+        for (Funcionario funcionario : funcionarios) {
+            System.out.println(funcionario.toString());
+        }
+        return null;
+    }
 }
