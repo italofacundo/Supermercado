@@ -92,11 +92,19 @@ public class Estoque {
         return false;
     }
 
-    public Produto getProduto(String nomeProduto) {
+    public ArrayList<String> imprimirProdutosCliente() {
+        ArrayList<String> listaProdutos = new ArrayList<>();
         for (Produto p : estoque) {
-            if (p.getNome().equalsIgnoreCase(nomeProduto)) {
-                return p;
-            }
+            String infoProduto = String.format("%s - Preço: R$%.2f",
+                    p.getNome(), p.getPreco());
+            listaProdutos.add(infoProduto);
+        }
+        return listaProdutos;
+    }
+
+    public Produto getProdutoCliente(int codigo) {
+        if (codigo >= 0 && codigo < estoque.size()) {
+            return estoque.get(codigo);
         }
         return null;
     }

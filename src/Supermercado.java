@@ -1,10 +1,13 @@
-import Entidades.Funcionarios.Gerente;
+import Entidades.Funcionarios.*;
+import Entidades.MenuVendas;
 import Entidades.Produto;
 import Entidades.Repositorios.FuncionarioRepositorio;
 import Entidades.Repositorios.VendasRepositorio;
 import Entidades.Repositorios.Estoque;
 import Entidades.Produtos.Alimenticios.Bebida;
 import Entidades.Venda;
+
+import java.util.Map;
 
 public class Supermercado {
     public static void main(String[] args) {
@@ -13,25 +16,23 @@ public class Supermercado {
         Estoque estoque = new Estoque();
         String arquivoProdutos = "src/produtos.txt";
 
-        Gerente joao = new Gerente("João", 5000);
+        Gerente joao = new Gerente("João", 4000);
         fr.contratarFuncionario(joao);
 
-        joao.carregarProdutos(estoque, arquivoProdutos);
-        joao.consultarEstoque(estoque);
+        joao.contratarFuncionario(fr, new Estoquista("José", 2000));
+        joao.contratarFuncionario(fr, new OperadorCaixa("Maria", 1500));
+        Estoquista jose = (Estoquista) fr.getFuncionario(2);
+        OperadorCaixa maria = (OperadorCaixa) fr.getFuncionario(3);
 
-        Venda venda = new Venda(estoque);
+        jose.carregarProdutos(estoque, arquivoProdutos);
 
-        Produto produto1 = estoque.getProduto("Café");
-        if (produto1 != null) {
-            venda.adicionarProduto(produto1, 2);
+        MenuVendas menuVendas = new MenuVendas();
+        maria.iniciarVenda(estoque);
+        Map<Produto, Integer> produtosSelecionados = menuVendas.selecionarProdutos(estoque);
+        for (Map.Entry<Produto, Integer> entrada : produtosSelecionados.entrySet()) {
+            maria.adicionarProdutoVenda(entrada.getKey(), entrada.getValue());
         }
-
-        Produto produto2 = estoque.getProduto("Detergente");
-        if (produto2 != null) {
-            venda.adicionarProduto(produto2, 1);
-        }
-
-        venda.concluirVenda();
+        maria.concluirVenda();
 
     }
 }

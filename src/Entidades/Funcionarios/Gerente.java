@@ -17,13 +17,13 @@ public class Gerente extends Funcionario implements ControleEstoque, ControleFun
     }
 
     @Override
-    public void contratarFuncionario(Funcionario funcionario) {
-
+    public void contratarFuncionario(FuncionarioRepositorio repositorio, Funcionario funcionario) {
+        repositorio.contratarFuncionario(funcionario);
     }
 
     @Override
-    public void demitirFuncionario(int id) {
-
+    public void demitirFuncionario(FuncionarioRepositorio repositorio, int id) {
+        repositorio.demitirFuncionario(id);
     }
 
     @Override

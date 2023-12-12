@@ -1,8 +1,9 @@
 package Entidades;
 
 import Entidades.Funcionario;
+import Entidades.Repositorios.FuncionarioRepositorio;
 
 public interface ControleFuncionarios {
-    void contratarFuncionario(Funcionario funcionario);
-    void demitirFuncionario(int id);
+    void contratarFuncionario(FuncionarioRepositorio repositorio, Funcionario funcionario);
+    void demitirFuncionario(FuncionarioRepositorio repositorio, int id);
 }

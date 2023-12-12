@@ -42,4 +42,13 @@ public class FuncionarioRepositorio {
             }
         }
     }
+
+    public Funcionario getFuncionario(int id) {
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getId() == id) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
 }

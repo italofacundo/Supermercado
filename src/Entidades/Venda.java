@@ -1,5 +1,10 @@
 package Entidades;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,18 +43,33 @@ public class Venda {
     }
 
     private void emitirRecibo() {
-        System.out.println("Recibo");
-        System.out.println("-------------------------------");
+        StringBuilder recibo = new StringBuilder();
+        double total = 0.0;
+
+        recibo.append("Recibo de Venda\n");
+        recibo.append("-------------------------------\n");
 
         for (Map.Entry<Produto, Integer> entrada : produtosVendidos.entrySet()) {
-            Produto produto = entrada.getKey();
-            Integer quantidade = entrada.getValue();
-            double subtotal = produto.getPreco() * quantidade;
-            System.out.printf("%s - Quantidade: %d, Preço Unitário: R$ %.2f, Subtotal: R$ %.2f\n",
-                    produto.getNome(), quantidade, produto.getPreco(), subtotal);
+            double subtotal = entrada.getKey().getPreco() * entrada.getValue();
+            total += subtotal;
+            recibo.append(String.format("%s x%d - R$%.2f\n", entrada.getKey().getNome(), entrada.getValue(), subtotal));
         }
 
-        System.out.println("-------------------------------");
-        System.out.printf("Total da Venda: R$ %.2f\n", totalVenda);
+        recibo.append("-------------------------------\n");
+        recibo.append(String.format("Total: R$ %.2f\n", total));
+
+        System.out.println(recibo);
+
+        LocalDateTime agora = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        String nomeArquivo = "Recibo_" + agora.format(formatter) + ".txt";
+        String caminhoArquivo = "src/recibos/" + nomeArquivo;
+
+        try (PrintWriter writer = new PrintWriter(new File(caminhoArquivo))) {
+            writer.print(recibo.toString());
+            System.out.println("Recibo salvo em: " + caminhoArquivo);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar o recibo: " + e.getMessage());
+        }
     }
 }
